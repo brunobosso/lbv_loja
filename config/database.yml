@@ -2,7 +2,7 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: lbv_training_development
+  database: loja_lbv_development
   pool: 5
   username: root
   password:
@@ -11,7 +11,7 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: lbv_training_test
+  database: loja_lbv_test
   pool: 5
   username: root
   password:
@@ -20,5 +20,5 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: lbv_training_production
+  database: loja_lbv_production
   pool: 5
