@@ -1,0 +1,21 @@
+#Sistema de mercado
+- Possui Operadores
+- Possui Setores
+- Possui de produtos
+- Produtos possuem categorias
+
+#Regras gerais
+- Tem uma parte do operador e uma parte pública
+- Operador pertence a um setor
+- Operadores cadastram categorias. Ex: Casa, Decoração, Detergentes, Sabão, TVs, Eletrodomésticos, etc...
+- Operadores cadastram produtos que podem pertencer a uma ou mais categorias. 
+
+#Parte do operador
+- CRUD das 4 entidades
+- Login
+
+#Parte Pública
+- Listagem de todos os produtos
+- Inicialmente eu vejo todos mas também posso filtrar por categoria,
+
+
