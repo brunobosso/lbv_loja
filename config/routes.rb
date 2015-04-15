@@ -1,8 +1,8 @@
 LbvTraining::Application.routes.draw do
 
   root to: 'test#index'
-  
-  namespace :admin
-  	resource :category
+
+  namespace :admin do
+  	resources :categories
   end
 end
