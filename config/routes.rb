@@ -4,5 +4,6 @@ LbvTraining::Application.routes.draw do
 
   namespace :admin do
   	resources :categories
+  	resources :sectors
   end
 end

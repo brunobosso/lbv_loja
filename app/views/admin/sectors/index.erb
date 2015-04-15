@@ -1,0 +1,7 @@
+<%= link_to "Novo Setor", new_admin_sector_path %>
+
+<% @sectors.each do |sector| %>
+	<%= sector.name %> 
+	| <%= link_to "Editar", edit_admin_sector_path(sector) %> 
+	| <%= link_to "Deletar", admin_sector_path(sector) , data: { method: :delete} %> <br>
+<% end %>
