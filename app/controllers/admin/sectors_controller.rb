@@ -4,6 +4,10 @@ class Admin::SectorsController < Admin::BaseController
 		@sectors = Sector.all
 	end
 
+	def show
+    	@sector = Category.find params[:id]
+    end
+
 	def new
 		@sector = Sector.new
 	end

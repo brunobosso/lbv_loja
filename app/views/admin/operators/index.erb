@@ -1,0 +1,9 @@
+<%= link_to "Novo operador", new_admin_operator_path %>
+
+<% @operators.each do |operator| %>
+	<%= operator.name %>  
+	| <%= operator.email %>
+	| <%= operator.sector.name %>
+	| <%= link_to "Editar", edit_admin_operator_path(operator) %> 
+	| <%= link_to "Deletar", admin_operator_path(operator) , data: { method: :delete} %> <br>
+<% end %>
