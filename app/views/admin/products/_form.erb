@@ -1,0 +1,7 @@
+<%= form_for [:admin, product], html: { class: 'form-horizontal' } do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :url_image %>
+  <!-- pesquisar como fazer isso-->
+  <%= select_tag "product[category_ids][]", options_from_collection_for_select(Category.all,'id','name',product.categories.map{ |j| j.id}),:multiple => true %>
+  <%= f.submit "Create" %>
+<% end %>

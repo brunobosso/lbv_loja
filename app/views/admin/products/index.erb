@@ -1,0 +1,13 @@
+<%= link_to "Novo produto", new_admin_product_path %>
+
+<% @products.each do |product| %>
+	<%= product.name %>  
+	| <%= product.url_image %>
+	| 
+	<% product.categories.each do |category| %>
+	<%= category.name %> , 
+
+	<% end %>
+	| <%= link_to "Editar", edit_admin_product_path(product) %> 
+	| <%= link_to "Deletar", admin_product_path(product) , data: { method: :delete} %> <br>
+<% end %>

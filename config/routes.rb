@@ -6,5 +6,6 @@ LbvTraining::Application.routes.draw do
   	resources :categories
   	resources :sectors
   	resources :operators
+  	resources :products
   end
 end
