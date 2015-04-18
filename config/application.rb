@@ -15,6 +15,10 @@ module LbvTraining
 
     config.assets.precompile += %w( init_application.css )
     config.assets.precompile += %w( init_application.js )
+
+    config.assets.precompile += %w( admin/init_application.css )
+    config.assets.precompile += %w( admin/init_application.js )
+
     config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
     config.assets.precompile += %w[ *.png *.jpeg *.jpg *.gif ]
 

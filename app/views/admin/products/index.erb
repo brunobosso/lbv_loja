@@ -1,13 +1,39 @@
-<%= link_to "Novo produto", new_admin_product_path %>
+<div class="page-header">
+	<h1>Produtos</h1>
+</div>
 
-<% @products.each do |product| %>
-	<%= product.name %>  
-	| <%= product.url_image %>
-	| 
-	<% product.categories.each do |category| %>
-	<%= category.name %> , 
+<p><%= link_to "Novo produto", new_admin_product_path, class: 'btn btn-sm btn-primary' %></p>
 
-	<% end %>
-	| <%= link_to "Editar", edit_admin_product_path(product) %> 
-	| <%= link_to "Deletar", admin_product_path(product) , data: { method: :delete} %> <br>
-<% end %>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Image</th>
+                <th>Categoria</th>
+                <th>Opções</th>
+              </tr>
+            </thead>
+            <tbody>
+            	<% @products.each do |product| %>
+              	<tr>
+                	<td><%= product.id %></td>
+                	<td><%= product.name %></td>
+                	<td><%= product.url_image %></td>
+                	<td>
+                	<% product.categories.each do |category| %>
+						<%= category.name %> , 
+					<% end %>
+                	</td>
+                	<td>
+                		<%= link_to "Editar", edit_admin_product_path(product), class: 'btn btn-sm btn-info' %> 
+						<%= link_to "Deletar", admin_product_path(product) , data: { method: :delete},class: 'btn btn-sm btn-danger' %>
+					</td>
+              	</tr>
+	            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

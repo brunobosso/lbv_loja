@@ -1,7 +1,31 @@
-<%= link_to "Novo Setor", new_admin_sector_path %>
+<div class="page-header">
+	<h1>Setor</h1>
+</div>
 
-<% @sectors.each do |sector| %>
-	<%= sector.name %> 
-	| <%= link_to "Editar", edit_admin_sector_path(sector) %> 
-	| <%= link_to "Deletar", admin_sector_path(sector) , data: { method: :delete} %> <br>
-<% end %>
+<p><%= link_to "Novo setor", new_admin_sector_path, class: 'btn btn-sm btn-primary' %></p>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Opções</th>
+              </tr>
+            </thead>
+            <tbody>
+	            <% @sectors.each do |sector| %>
+              	<tr>
+                	<td><%= sector.id %></td>
+                	<td><%= sector.name %></td>
+                	<td>
+                		<%= link_to "Editar", edit_admin_sector_path(sector), class: 'btn btn-sm btn-info' %> 
+						<%= link_to "Deletar", admin_sector_path(sector) , data: { method: :delete},class: 'btn btn-sm btn-danger' %>
+					</td>
+              	</tr>
+	            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

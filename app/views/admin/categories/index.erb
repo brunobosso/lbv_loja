@@ -1,7 +1,31 @@
-<%= link_to "Nova categoria", new_admin_category_path %>
+<div class="page-header">
+	<h1>Categoria</h1>
+</div>
 
-<% @categories.each do |category| %>
-	<%= category.name %> 
-	| <%= link_to "Editar", edit_admin_category_path(category) %> 
-	| <%= link_to "Deletar", admin_category_path(category) , data: { method: :delete} %> <br>
-<% end %>
+<p><%= link_to "Nova categoria", new_admin_category_path, class: 'btn btn-sm btn-primary' %></p>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Opções</th>
+              </tr>
+            </thead>
+            <tbody>
+	            <% @categories.each do |category| %>
+              	<tr>
+                	<td><%= category.id %></td>
+                	<td><%= category.name %></td>
+                	<td>
+                		<%= link_to "Editar", edit_admin_category_path(category), class: 'btn btn-sm btn-info' %> 
+						<%= link_to "Deletar", admin_category_path(category) , data: { method: :delete},class: 'btn btn-sm btn-danger' %>
+					</td>
+              	</tr>
+	            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

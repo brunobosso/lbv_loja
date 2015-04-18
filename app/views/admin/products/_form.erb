@@ -1,7 +1,22 @@
-<%= form_for [:admin, product], html: { class: 'form-horizontal' } do |f| %>
-  <%= f.text_field :name %>
-  <%= f.text_field :url_image %>
-  <!-- pesquisar como fazer isso-->
-  <%= select_tag "product[category_ids][]", options_from_collection_for_select(Category.all,'id','name',product.categories.map{ |j| j.id}),:multiple => true %>
-  <%= f.submit "Create" %>
+<%= form_for [:admin, product] do |f| %>
+	<div class="form-group">
+	  <%= f.label :name %>:
+	  <%= f.text_field :name,class: 'form-control' %>
+	</div>
+	<div class="form-group">
+	  <%= f.label :url_image %>:
+	  <%= f.text_field :url_image,class: 'form-control' %>
+	</div>
+	<div class="form-group">
+	  <!-- pesquisar como fazer isso-->
+	  <%= f.label :categories, class: "control-label" %>:
+	  <%= select_tag "product[category_ids][]", options_from_collection_for_select(Category.all,'id','name',product.categories.map{ |j| j.id}),{:multiple => true, class: 'form-control'} %>
+	</div>
+	<div class="row">
+	    <div class="col-md-3 col-md-offset-5">
+		  <%= f.submit "Salvar",class: "btn btn-sm btn-success" %>
+		  <%= link_to "Deletar", admin_product_path(product) , data: { method: :delete},class: 'btn btn-sm btn-danger' %>
+	  	  <%= link_to "Voltar", :back, class: "btn btn-sm btn-default" %>
+	  </div>
+	</div>
 <% end %>

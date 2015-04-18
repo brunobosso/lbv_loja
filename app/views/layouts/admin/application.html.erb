@@ -2,13 +2,30 @@
 <html>
 <head>
   <title>TITULO</title>
-  <%= stylesheet_link_tag    "init_application", media: "all" %>
-  <%= javascript_include_tag "init_application" %>
+  <%= stylesheet_link_tag    "admin/init_application", media: "all" %>
+  <%= javascript_include_tag "admin/init_application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h3>LBV</h3>
-<%= yield %>
-
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Loja</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><%= link_to "Operadores", admin_operators_path %></li>
+            <li><%= link_to "Setores", admin_sectors_path %></li>
+            <li><%= link_to "Produtos", admin_products_path %></li>
+            <li><%= link_to "Categorias", admin_categories_path %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+	<div class="content container" role="main">
+		<%= yield %>      
+	</div>
 </body>
 </html>
+
+

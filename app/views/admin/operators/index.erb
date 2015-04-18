@@ -1,9 +1,35 @@
-<%= link_to "Novo operador", new_admin_operator_path %>
+<div class="page-header">
+	<h1>Operador</h1>
+</div>
 
-<% @operators.each do |operator| %>
-	<%= operator.name %>  
-	| <%= operator.email %>
-	| <%= operator.sector.name %>
-	| <%= link_to "Editar", edit_admin_operator_path(operator) %> 
-	| <%= link_to "Deletar", admin_operator_path(operator) , data: { method: :delete} %> <br>
-<% end %>
+<p><%= link_to "Novo Operador", new_admin_operator_path, class: 'btn btn-sm btn-primary' %></p>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Email</th>  
+                <th>Setor</th>
+                <th>Opções</th>
+              </tr>
+            </thead>
+            <tbody>
+	            <% @operators.each do |operator| %>
+              	<tr>
+                	<td><%= operator.id %></td>
+                	<td><%= operator.name %></td>
+                	<td><%= operator.email %></td>
+                	<td><%= operator.sector.name %></td>
+                	<td>
+                		<%= link_to "Editar", edit_admin_operator_path(operator), class: 'btn btn-sm btn-info' %> 
+						<%= link_to "Deletar", admin_operator_path(operator) , data: { method: :delete},class: 'btn btn-sm btn-danger' %>
+					</td>
+              	</tr>
+	            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
