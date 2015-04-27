@@ -11,6 +11,10 @@
 	  <%= f.label :sector_id %>:
 	  <%= f.select :sector_id, Sector.pluck(:name,:id), {},class: 'form-control' %> 
 	</div>
+	<div class="form-group">
+	  <%= f.label :password %>:
+	  <%= f.password_field :password, class: 'form-control' %> 
+	</div>
 	<div class="row">
 	    <div class="col-md-3 col-md-offset-5">
 		  <%= f.submit "Salvar",class: "btn btn-sm btn-success" %>

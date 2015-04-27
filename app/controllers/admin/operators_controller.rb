@@ -1,5 +1,5 @@
 class Admin::OperatorsController < Admin::BaseController
-
+ 
 	def index
 		@operators = Operator.includes(:sector).all
 	end
@@ -17,6 +17,7 @@ class Admin::OperatorsController < Admin::BaseController
 	end
 
 	def create
+
 		@operator = Operator.new operator_params
 		if @operator.save
 			flash[:success] = "Operador salvo com sucesso!"
@@ -47,6 +48,7 @@ class Admin::OperatorsController < Admin::BaseController
 	end	
 
 	def operator_params
-		params.require(:operator).permit(:name,:email,:sector_id)
+		params[:operator][:password] = Operator.md5_password(params[:operator][:password])
+		params.require(:operator).permit(:name,:email,:sector_id,:password)
 	end
 end
