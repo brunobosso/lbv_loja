@@ -29,7 +29,7 @@
                 	</td>
                 	<td>
                 		<%= link_to "Editar", edit_admin_product_path(product), class: 'btn btn-sm btn-info' %> 
-						<%= link_to "Deletar", admin_product_path(product) , data: { method: :delete},class: 'btn btn-sm btn-danger' %>
+						<%= link_to "Deletar", admin_product_path(product) , data: { method: :delete, confirm: "Deseja deletar?"},class: 'btn btn-sm btn-danger' %>
 					</td>
               	</tr>
 	            <% end %>

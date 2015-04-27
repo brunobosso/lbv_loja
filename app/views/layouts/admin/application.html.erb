@@ -14,18 +14,21 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><%= link_to "Operadores", admin_operators_path %></li>
-            <li><%= link_to "Setores", admin_sectors_path %></li>
-            <li><%= link_to "Produtos", admin_products_path %></li>
-            <li><%= link_to "Categorias", admin_categories_path %></li>
+            <li class="<%= 'active' if params[:controller].include?(:operators.to_s) %>"><%= link_to "Operadores", admin_operators_path %></li>
+            <li class="<%= 'active' if params[:controller].include?(:sectors.to_s) %>"><%= link_to "Setores", admin_sectors_path %></li>
+            <li class="<%= 'active' if params[:controller].include?(:products.to_s) %>"><%= link_to "Produtos", admin_products_path %></li>
+            <li class="<%= 'active' if params[:controller].include?(:categories.to_s) %>"><%= link_to "Categorias", admin_categories_path %></li>
           </ul>
         </div>
       </div>
     </nav>
 	<div class="content container" role="main">
+    <div class="flash">
+      <% flash.each do |key,value| %>
+        <div class="alert-<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
 		<%= yield %>      
 	</div>
 </body>
 </html>
-
-

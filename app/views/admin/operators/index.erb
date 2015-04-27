@@ -25,7 +25,7 @@
                 	<td><%= operator.sector.name %></td>
                 	<td>
                 		<%= link_to "Editar", edit_admin_operator_path(operator), class: 'btn btn-sm btn-info' %> 
-						<%= link_to "Deletar", admin_operator_path(operator) , data: { method: :delete},class: 'btn btn-sm btn-danger' %>
+						<%= link_to "Deletar", admin_operator_path(operator) , data: { method: :delete, confirm: "Deseja deletar?"},class: 'btn btn-sm btn-danger' %>
 					</td>
               	</tr>
 	            <% end %>

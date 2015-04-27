@@ -7,7 +7,7 @@ gem 'rails', '4.2.0'
 
 # if "Can't connect to local MySQL server through socket '/tmp/mysql.sock'"
 # mysql.server start && rake db:create
-gem 'mysql2', '0.3.17'
+gem 'mysql2' #, '0.3.17'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

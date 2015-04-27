@@ -21,7 +21,7 @@
                 	<td><%= sector.name %></td>
                 	<td>
                 		<%= link_to "Editar", edit_admin_sector_path(sector), class: 'btn btn-sm btn-info' %> 
-						<%= link_to "Deletar", admin_sector_path(sector) , data: { method: :delete},class: 'btn btn-sm btn-danger' %>
+						<%= link_to "Deletar", admin_sector_path(sector) , data: { method: :delete, confirm: "Deseja exluir?"},class: 'btn btn-sm btn-danger' %>
 					</td>
               	</tr>
 	            <% end %>

@@ -1,7 +1,7 @@
 class Admin::ProductsController < Admin::BaseController
 
 	def index
-		@products = Product.all
+		@products = Product.includes(:categories).all
 	end
 
 	def show
@@ -17,24 +17,33 @@ class Admin::ProductsController < Admin::BaseController
 	end
 
 	def create
-
 		@product = Product.new params_product
-		@categories = Category.find params_product[:category_ids]
-		@product.categories = @categories
-		@product.save
+		if @product.save
+			flash[:success] = "Produto salvo com sucesso!"
+		else
+			flash[:danger] = "Ocorreu um erro ao salvar o produto!"
+		end
 		redirect_to admin_products_path
 	end
 
 	def update
 		@product = Product.find params[:id]
-		@product.update_attributes params_product
+		if @product.update_attributes params_product
+			flash[:success] = "Produto alterado com sucesso!"
+		else
+			flash[:danger] = "Ocorreu um erro ao alterar o produto!"
+		end
 		redirect_to admin_products_path
 
 	end
 
 	def destroy
 		@product = Product.find params[:id]
-		@product.destroy
+		if @product.destroy
+			flash[:success] = "Produto excluido com sucesso!"
+		else
+			flash[:danger] = "Ocorreu um erro ao excluir o produto!"
+		end
 		redirect_to admin_products_path
 	end
 

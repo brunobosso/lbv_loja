@@ -2,7 +2,7 @@
 	<h1>Categoria</h1>
 </div>
 
-<p><%= link_to "Nova categoria", new_admin_category_path, class: 'btn btn-sm btn-primary' %></p>
+<p><%= link_to "Nova categoria", new_admin_category_path, class: 'btn btn-sm btn-primary btn-novo' %></p>
 
 <div class="row">
     <div class="col-md-12">
@@ -21,7 +21,7 @@
                 	<td><%= category.name %></td>
                 	<td>
                 		<%= link_to "Editar", edit_admin_category_path(category), class: 'btn btn-sm btn-info' %> 
-						<%= link_to "Deletar", admin_category_path(category) , data: { method: :delete},class: 'btn btn-sm btn-danger' %>
+						<%= link_to "Deletar", admin_category_path(category) , data: { method: :delete, confirm: "Deseja deletar?"},class: 'btn btn-sm btn-danger' %>
 					</td>
               	</tr>
 	            <% end %>
