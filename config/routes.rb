@@ -11,4 +11,7 @@ LbvTraining::Application.routes.draw do
   end
 
   resources :products, only: [:index, :show]
+
+  get 'products/filterCategory/:category_id' => 'products#filtro'
+
 end

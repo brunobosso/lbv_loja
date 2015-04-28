@@ -1,7 +1,6 @@
-<% @products.each do |product| %>
-	<div class="col-lg-4">
-		<%= image_tag product.url_image %>
-	    <h2><%= product.name %></h2>
-	    <p><%= link_to 'Ver detalhes ', product_path(product), :class => 'btn btn-primary' %></p>
-	</div>
-<% end %>
+<div class="nav navbar-nav navbar-right">
+	Categoria: <%= select_tag :category_id,options_from_collection_for_select(Category.all, :id, :name), include_blank: 'Todas'%>
+</div>
+<div id="products">
+	<%= render partial: "list", locals: {products: @products} %>
+</div>
