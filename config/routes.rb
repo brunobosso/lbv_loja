@@ -1,6 +1,6 @@
 LbvTraining::Application.routes.draw do
 
-  root to: 'admin/operators#index'
+  root to: 'products#index'
 
   namespace :admin do
   	resources :categories
@@ -9,4 +9,6 @@ LbvTraining::Application.routes.draw do
   	resources :products
   	resource :login
   end
+
+  resources :products, only: [:index, :show]
 end

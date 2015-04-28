@@ -1,0 +1,11 @@
+	<div class="col-xs-6 col-lg-4">
+		<%= image_tag @product.url_image %>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-lg-8">
+	    <h2><%= @product.name %></h2>
+	    <p><strong>Categoria</strong></p>
+  		<% @product.categories.each do |category| %>
+    		<p><%= category.name %></p>
+  		<% end %>
+  		<p><%= link_to t(:back), products_path,:class => 'btn btn-primary' %></p>
+	</div>
